@@ -12,8 +12,8 @@
 
 
 /* requireJS module definition */
-define(["jquery", "Line", "Circle", "Point", "KdTree"],
-    (function($, Line, Circle, Point) {
+define(["jquery", "Line", "Circle", "Point", "KdTree", "util", "kdutil"],
+    (function($, Line, Circle, Point, KdTree, Util, KdUtil) {
         "use strict";
 
         /*
@@ -22,6 +22,8 @@ define(["jquery", "Line", "Circle", "Point", "KdTree"],
          */
         var HtmlController = function(context,scene,sceneController) {
 
+            var kdTree;
+            var pointList = [];
 
             // generate random X coordinate within the canvas
             var randomX = function() {
@@ -51,8 +53,44 @@ define(["jquery", "Line", "Circle", "Point", "KdTree"],
                 return "#"+toHex2(r)+toHex2(g)+toHex2(b);
             };
 
-            var KdTree = undefined;
-            var pointList = [];
+
+            // public method: show parameters for selected object
+            this.showParamsForObj = function(obj) {
+
+                if(!obj) {
+                    $("#radius_div").hide();
+                    return;
+                }
+
+                $("#obj_lineWidth").attr("value", obj.lineStyle.width);
+                $("#obj_color").attr("value", obj.lineStyle.color);
+                if(obj.radius == undefined) {
+                    $("#radius_div").hide();
+                } else {
+                    $("#radius_div").show();
+                    $("#obj_radius").attr("value", obj.radius);
+                };
+
+            };
+
+            // for all elements of class objParams
+            $(".objParam").change( (function(ev) {
+
+                var obj = sceneController.getSelectedObject();
+                if(!obj) {
+                    window.console.log("ParamController: no object selected.");
+                    return;
+                };
+
+                obj.lineStyle.width = parseInt($("#obj_lineWidth").attr("value"));
+                obj.lineStyle.color = $("#obj_color").attr("value");
+                if(obj.radius != undefined) {
+                    obj.radius = parseInt($("#obj_radius").attr("value"));
+                };
+
+                scene.draw(context);
+            }));
+
 
             /*
              * event handler for "new line button".
@@ -74,40 +112,9 @@ define(["jquery", "Line", "Circle", "Point", "KdTree"],
                 sceneController.deselect();
                 sceneController.select(line); // this will also redraw
 
-            }))
+            }));
 
-            /*
-                event handler for "new circle button".
-             */
-            $("#btnNewCircle").click(function () {
 
-                var style = {
-                    width: Math.floor(Math.random() * 3) + 1,
-                    color: randomColor()
-                };
-
-                console.log("circle");
-
-                var circle = new Circle([randomX(), randomY()], Math.random()*50, style);
-                scene.addObjects([circle]);
-                sceneController.deselect();
-                sceneController.select(circle);
-
-            })
-            
-            $("#btnNewPoint").click(function () {
-
-                var style = {
-                    width: Math.floor(Math.random() * 3) + 1,
-                    color: randomColor()
-                };
-
-                var point = new Point([randomX(), randomY()], Math.random()*50+1, style);
-                scene.addObjects([point]);
-                sceneController.deselect();
-                sceneController.select(point);
-
-            })
 
             $("#btnNewPointList").click( (function() {
 
@@ -158,7 +165,7 @@ define(["jquery", "Line", "Circle", "Point", "KdTree"],
                 var queryPoint = new Point([randomX(), randomY()], 2,
                     style);
                 scene.addObjects([queryPoint]);
-                sceneController.select(queryPoint);
+                sceneController.select(queryPoint); 
 
                 console.log("query point: ", queryPoint.center);
 
