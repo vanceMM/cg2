@@ -182,6 +182,26 @@ define(["jquery", "Line", "Circle", "Point", "KdTree", "util", "kdutil"],
 
             }));
 
+            /**
+             * eventhandler for changing width
+             */
+            $("#lineWidthChager").change((function () {
+                var selection = sceneController.getSelectedObject();
+                selection.setWidth(this.value);
+                sceneController.deselect();
+                sceneController.select(selection);
+            }));
+
+            /**
+             * eventhandler for changing the color
+             */
+            $("#colorChanger").change((function () {
+                var selection = sceneController.getSelectedObject();
+                selection.setColor(this.value);
+                sceneController.deselect();
+                sceneController.select(selection);
+            }))
+
         };
 
         // return the constructor function

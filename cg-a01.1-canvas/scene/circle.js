@@ -76,7 +76,23 @@ define(["util", "vec2", "Scene", "PointDragger"],
 
             return draggers;
 
+        }
+
+        Circle.prototype.getWidth = function() {
+            return this.lineStyle.color;
         };
+
+        Circle.prototype.setWidth = function (width) {
+            this.lineStyle.width = width;
+        }
+
+        Circle.prototype.getColor = function () {
+            return this.lineStyle.color;
+        }
+
+        Circle.prototype.setColor = function (color) {
+            this.lineStyle.color = color;
+        }
 
         //this module only exports the constructor for Circle objects
         return Circle;

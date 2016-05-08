@@ -112,6 +112,22 @@ define(["util", "vec2", "Scene", "PointDragger"],
 
         };
 
+        Line.prototype.getWidth = function() {
+            return this.lineStyle.color;
+        };
+
+        Line.prototype.setWidth = function (width) {
+            this.lineStyle.width = width;
+        }
+
+        Line.prototype.getColor = function () {
+            return this.lineStyle.color;
+        }
+
+        Line.prototype.setColor = function (color) {
+            this.lineStyle.color = color;
+        }
+
 
         // this module only exports the constructor for StraightLine objects
         return Line;
