@@ -12,8 +12,8 @@
 
 
 /* requireJS module definition */
-define(["jquery", "Line", "Circle", "Point", "KdTree"],
-    (function($, Line, Circle, Point) {
+define(["jquery", "Line", "Circle", "Point", "KdTree", "util", "kdutil"],
+    (function($, Line, Circle, Point, KdTree, Util, KdUtil ) {
         "use strict";
 
         /*
@@ -51,7 +51,7 @@ define(["jquery", "Line", "Circle", "Point", "KdTree"],
                 return "#"+toHex2(r)+toHex2(g)+toHex2(b);
             };
 
-            var KdTree = undefined;
+            var kdTree = undefined;
             var pointList = [];
 
             /*
@@ -173,7 +173,7 @@ define(["jquery", "Line", "Circle", "Point", "KdTree"],
 
                 console.log("nearest neighbor linear: ", pointList[minIdx].center);
 
-                var kdNearestNeighbor = kdTree.findNearestNeighbor(kdTree.root, queryPoint, 10000000, kdTree.root, 0);
+                var kdNearestNeighbor = kdTree.findNearestNeighbor(kdTree.root, queryPoint, kdTree.root, 10000000, 0);
 
                 console.log("nearest neighbor kd: ", kdNearestNeighbor.point.center);
 
