@@ -12,8 +12,8 @@
 
 
 /* requireJS module definition */
-define(["jquery", "Line", "Circle", "Point", "ParametricCurve", "BezierCurve"],
-    (function($, Line, Circle, Point, ParametricCurve, BezierCurve) {
+define(["jquery", "Line", "Circle", "Point", "ParametricCurve", "BezierCurve", "KdTree", "kdutil"],
+    (function($, Line, Circle, Point, ParametricCurve, BezierCurve, KdTree, KdUtil) {
         "use strict";
 
         /*
@@ -50,6 +50,9 @@ define(["jquery", "Line", "Circle", "Point", "ParametricCurve", "BezierCurve"],
                 // convert to hex notation
                 return "#"+toHex2(r)+toHex2(g)+toHex2(b);
             };
+
+            var kdTree = undefined;
+            var pointList = [];
 
             /*
              * event handler for "new line button".
@@ -153,6 +156,108 @@ define(["jquery", "Line", "Circle", "Point", "ParametricCurve", "BezierCurve"],
             sceneController.select(bezierCurve);
    
             }));
+
+            /**
+             * creates a list of given points (#numPoints).
+             */
+
+            $("#btnNewPointList").click( (function() {
+
+                // create the actual line and add it to the scene
+                var style = {
+                    width: Math.floor(Math.random()*3)+1,
+                    color: randomColor()
+                };
+
+                var numPoints = parseInt($("#numPoints").attr("value"));;
+                for(var i=0; i<numPoints; ++i) {
+                    var point = new Point([randomX(), randomY()], 5,
+                        style);
+                    scene.addObjects([point]);
+                    pointList.push(point);
+                }
+
+                // deselect all objects, then select the newly created object
+                sceneController.deselect();
+
+            }));
+
+            /**
+             * visualizing the tree
+             */
+            $("#visKdTree").click( (function() {
+
+                var showTree = $("#visKdTree").attr("checked");
+                if(showTree && kdTree) {
+                    KdUtil.visualizeKdTree(sceneController, scene, kdTree.root, 0, 0, 600, true);
+                }
+
+            }));
+            /**
+             *  builds a tree based on the list of points(pointlist)
+             */
+            $("#btnBuildKdTree").click( (function() {
+
+                kdTree = new KdTree(pointList);
+
+            }));
+
+            /**
+             * creates a random query point and
+             * runs linear search and kd-nearest-neighbor search
+             */
+            $("#btnQueryKdTree").click( (function() {
+
+                var style = {
+                    width: 2,
+                    color: "#ff0000"
+                };
+                var queryPoint = new Point([randomX(), randomY()], 2,
+                    style);
+                scene.addObjects([queryPoint]);
+                sceneController.select(queryPoint);
+
+                console.log("query point: ", queryPoint.center);
+
+                ////////////////////////////////////////////////
+                // TODO: measure and compare timings of linear
+                //       and kd-nearest-neighbor search
+                ////////////////////////////////////////////////
+                var linearTiming;
+                var kdTiming;
+
+                var minIdx = KdUtil.linearSearch(pointList, queryPoint);
+
+                console.log("nearest neighbor linear: ", pointList[minIdx].center);
+
+                var kdNearestNeighbor = kdTree.findNearestNeighbor(kdTree.root, queryPoint, kdTree.root, 10000000, 0);
+
+                console.log("nearest neighbor kd: ", kdNearestNeighbor.point.center);
+
+                sceneController.select(pointList[minIdx]);
+                sceneController.select(kdNearestNeighbor.point);
+
+            }));
+
+            /**
+             * eventhandler for changing width
+             */
+            $("#lineWidthChager").change((function () {
+                var selection = sceneController.getSelectedObject();
+                selection.setWidth(this.value);
+                sceneController.deselect();
+                sceneController.select(selection);
+            }));
+
+            /**
+             * eventhandler for changing the color
+             */
+            $("#colorChanger").change((function () {
+                var selection = sceneController.getSelectedObject();
+                selection.setColor(this.value);
+                sceneController.deselect();
+                sceneController.select(selection);
+            }))
 
     };
 

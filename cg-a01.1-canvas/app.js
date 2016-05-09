@@ -21,6 +21,7 @@ requirejs.config({
             '../lib/jquery-1.7.2.min'],
 
         "util" : "./utils/util",
+        "kdutil" : "./utils/kdutil",
 
         "Scene" : "./scene/scene",
         "Line" : "./scene/line",
@@ -29,6 +30,9 @@ requirejs.config({
         "ParametricCurve" : "./scene/parametricCurve",
         "BezierCurve" : "./scene/bezierCurve",
         "PointDragger" : "./scene/point_dragger",
+        "KdTree" : "./kdtree/kdtree",
+        "BoundingBox" : "./kdtree/boundingbox",
+        "KdNode" : "./kdtree/kdnode",
 
         "vec2" : "./math/vec2",
 
