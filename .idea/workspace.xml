@@ -1,13 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="c43cf3b6-f129-43cc-bdf1-e7fc0b297b2a" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/cg-a01.1-canvas/controller/html_controller.js" afterPath="$PROJECT_DIR$/cg-a01.1-canvas/controller/html_controller.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/cg-a01.1-canvas/index.html" afterPath="$PROJECT_DIR$/cg-a01.1-canvas/index.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/cg-a01.1-canvas/scene/circle.js" afterPath="$PROJECT_DIR$/cg-a01.1-canvas/scene/circle.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/cg-a01.1-canvas/scene/line.js" afterPath="$PROJECT_DIR$/cg-a01.1-canvas/scene/line.js" />
-    </list>
+    <list default="true" id="c43cf3b6-f129-43cc-bdf1-e7fc0b297b2a" name="Default" comment="" />
     <ignored path="cg2.iws" />
     <ignored path=".idea/workspace.xml" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -29,7 +23,7 @@
     <splitter split-orientation="horizontal" split-proportion="0.5">
       <split-first>
         <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-          <file leaf-file-name="app.js" pinned="false" current-in-tab="false">
+          <file leaf-file-name="app.js" pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/cg-a01.1-canvas/app.js">
               <provider selected="true" editor-type-id="text-editor">
                 <state relative-caret-position="1290">
@@ -41,11 +35,11 @@
               </provider>
             </entry>
           </file>
-          <file leaf-file-name="html_controller.js" pinned="false" current-in-tab="true">
+          <file leaf-file-name="html_controller.js" pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/cg-a01.1-canvas/controller/html_controller.js">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="847">
-                  <caret line="201" column="50" selection-start-line="201" selection-start-column="50" selection-end-line="201" selection-end-column="50" />
+                <state relative-caret-position="2415">
+                  <caret line="161" column="0" selection-start-line="161" selection-start-column="0" selection-end-line="161" selection-end-column="0" />
                   <folding>
                     <element signature="n#!!doc" expanded="true" />
                   </folding>
@@ -223,8 +217,8 @@
         <option value="$PROJECT_DIR$/cg-a01.1-canvas/scene/point.js" />
         <option value="$PROJECT_DIR$/cg-a01.1-canvas/index.html" />
         <option value="$PROJECT_DIR$/cg-a01.1-canvas/scene/line.js" />
-        <option value="$PROJECT_DIR$/cg-a01.1-canvas/controller/html_controller.js" />
         <option value="$PROJECT_DIR$/cg-a01.1-canvas/scene/circle.js" />
+        <option value="$PROJECT_DIR$/cg-a01.1-canvas/controller/html_controller.js" />
       </list>
     </option>
   </component>
@@ -503,12 +497,12 @@
       <workItem from="1462563662950" duration="16268000" />
       <workItem from="1462636712998" duration="21412000" />
       <workItem from="1462746428313" duration="17000" />
-      <workItem from="1462748570162" duration="2573000" />
+      <workItem from="1462748570162" duration="2941000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="70994000" />
+    <option name="totallyTimeSpent" value="71362000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -879,16 +873,6 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/cg-a01.1-canvas/kdtree/kdutil.js" />
     <entry file="file://$PROJECT_DIR$/cg-a01.1-canvas/controller/html_controller_1.2.js" />
-    <entry file="file://$PROJECT_DIR$/cg-a01.1-canvas/app.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1290">
-          <caret line="86" column="45" selection-start-line="86" selection-start-column="41" selection-end-line="86" selection-end-column="45" />
-          <folding>
-            <element signature="n#!!doc" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/cg-a01.1-canvas/utils/util.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="540">
@@ -973,16 +957,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/cg-a01.1-canvas/controller/html_controller.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="847">
-          <caret line="201" column="50" selection-start-line="201" selection-start-column="50" selection-end-line="201" selection-end-column="50" />
-          <folding>
-            <element signature="n#!!doc" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/cg-a01.1-canvas/scene/line.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="712">
@@ -998,6 +972,26 @@
         <state relative-caret-position="607">
           <caret line="83" column="0" selection-start-line="83" selection-start-column="0" selection-end-line="83" selection-end-column="0" />
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/cg-a01.1-canvas/controller/html_controller.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="2415">
+          <caret line="161" column="0" selection-start-line="161" selection-start-column="0" selection-end-line="161" selection-end-column="0" />
+          <folding>
+            <element signature="n#!!doc" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/cg-a01.1-canvas/app.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1290">
+          <caret line="86" column="45" selection-start-line="86" selection-start-column="41" selection-end-line="86" selection-end-column="45" />
+          <folding>
+            <element signature="n#!!doc" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>

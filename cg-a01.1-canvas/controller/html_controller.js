@@ -12,8 +12,8 @@
 
 
 /* requireJS module definition */
-define(["jquery", "Line", "Circle", "Point", "KdTree", "util", "kdutil"],
-    (function($, Line, Circle, Point, KdTree, Util, KdUtil ) {
+define(["jquery", "Line", "Circle", "Point", "ParametricCurve", "BezierCurve"],
+    (function($, Line, Circle, Point, ParametricCurve, BezierCurve) {
         "use strict";
 
         /*
@@ -51,9 +51,6 @@ define(["jquery", "Line", "Circle", "Point", "KdTree", "util", "kdutil"],
                 return "#"+toHex2(r)+toHex2(g)+toHex2(b);
             };
 
-            var kdTree = undefined;
-            var pointList = [];
-
             /*
              * event handler for "new line button".
              */
@@ -74,12 +71,12 @@ define(["jquery", "Line", "Circle", "Point", "KdTree", "util", "kdutil"],
                 sceneController.deselect();
                 sceneController.select(line); // this will also redraw
 
-            }))
+            }));
 
             /*
                 event handler for "new circle button".
              */
-            $("#btnNewCircle").click(function () {
+            $("#btnNewCircle").click( (function () {
 
                 var style = {
                     width: Math.floor(Math.random() * 3) + 1,
@@ -88,121 +85,76 @@ define(["jquery", "Line", "Circle", "Point", "KdTree", "util", "kdutil"],
 
                 console.log("circle");
 
-                var circle = new Circle([randomX(), randomY()], Math.random()*50, style);
+                var circle = new Circle([randomX(), randomY()], Math.random()*50+10, style);
+                
                 scene.addObjects([circle]);
                 sceneController.deselect();
                 sceneController.select(circle);
 
-            })
-            
-            $("#btnNewPoint").click(function () {
+            }));
+
+            /*
+                event handler for "new Point button".
+             */
+            $("#btnNewPoint").click( (function () {
+
+                console.log("point");
+
+                var point = new Point([randomX(), randomY()], 2);
+                console.log(Point);
+                scene.addObjects([point]);
+                sceneController.deselect();
+
+            }));
+
+            $("#btnNewParametricCurve").click( (function () {
+
+            var style = { 
+                width: Math.floor(Math.random()*3)+1,
+                color: randomColor()
+            };
+
+            console.log("Parametric Curve");
+
+            var parametricCurve = new ParametricCurve($("#x").val(),
+                                        $("#y").val(),
+                                        parseFloat($("#tMin").val()),
+                                        parseFloat($("#tMax").val()),
+                                        parseInt($("#segments").val()), style);
+
+            scene.addObjects([parametricCurve]);
+            console.log(parametricCurve);
+
+            sceneController.deselect();
+            sceneController.select(parametricCurve);
+
+            }));
+
+            $("#btnNewBezierCurve").click( (function () {
 
                 var style = {
                     width: Math.floor(Math.random() * 3) + 1,
                     color: randomColor()
                 };
 
-                var point = new Point([randomX(), randomY()], Math.random()*50+1, style);
-                scene.addObjects([point]);
-                sceneController.deselect();
-                sceneController.select(point);
+                console.log("bezier curve");
 
-            })
-
-            $("#btnNewPointList").click( (function() {
-
-                // create the actual line and add it to the scene
-                var style = {
-                    width: Math.floor(Math.random()*3)+1,
-                    color: randomColor()
-                };
-
-                var numPoints = parseInt($("#numPoints").attr("value"));;
-                for(var i=0; i<numPoints; ++i) {
-                    var point = new Point([randomX(), randomY()], 5,
-                        style);
-                    scene.addObjects([point]);
-                    pointList.push(point);
-                }
-
-                // deselect all objects, then select the newly created object
-                sceneController.deselect();
-
+            var p0 = [randomX(),randomY()];
+            var p1 = [randomX(),randomY()];
+            var p2 = [randomX(),randomY()];
+            var p3 = [randomX(),randomY()];
+            
+            var bezierCurve = new BezierCurve(p0, p1, p2, p3, style);
+            
+            scene.addObjects([bezierCurve]);
+            
+            console.log(bezierCurve);
+            sceneController.deselect();
+            sceneController.select(bezierCurve);
+   
             }));
 
-            $("#visKdTree").click( (function() {
-
-                var showTree = $("#visKdTree").attr("checked");
-                if(showTree && kdTree) {
-                    KdUtil.visualizeKdTree(sceneController, scene, kdTree.root, 0, 0, 600, true);
-                }
-
-            }));
-
-            $("#btnBuildKdTree").click( (function() {
-
-                kdTree = new KdTree(pointList);
-
-            }));
-
-            /**
-             * creates a random query point and
-             * runs linear search and kd-nearest-neighbor search
-             */
-            $("#btnQueryKdTree").click( (function() {
-
-                var style = {
-                    width: 2,
-                    color: "#ff0000"
-                };
-                var queryPoint = new Point([randomX(), randomY()], 2,
-                    style);
-                scene.addObjects([queryPoint]);
-                sceneController.select(queryPoint);
-
-                console.log("query point: ", queryPoint.center);
-
-                ////////////////////////////////////////////////
-                // TODO: measure and compare timings of linear
-                //       and kd-nearest-neighbor search
-                ////////////////////////////////////////////////
-                var linearTiming;
-                var kdTiming;
-
-                var minIdx = KdUtil.linearSearch(pointList, queryPoint);
-
-                console.log("nearest neighbor linear: ", pointList[minIdx].center);
-
-                var kdNearestNeighbor = kdTree.findNearestNeighbor(kdTree.root, queryPoint, kdTree.root, 10000000, 0);
-
-                console.log("nearest neighbor kd: ", kdNearestNeighbor.point.center);
-
-                sceneController.select(pointList[minIdx]);
-                sceneController.select(kdNearestNeighbor.point);
-
-            }));
-
-            /**
-             * eventhandler for changing width
-             */
-            $("#lineWidthChager").change((function () {
-                var selection = sceneController.getSelectedObject();
-                selection.setWidth(this.value);
-                sceneController.deselect();
-                sceneController.select(selection);
-            }));
-
-            /**
-             * eventhandler for changing the color
-             */
-            $("#colorChanger").change((function () {
-                var selection = sceneController.getSelectedObject();
-                selection.setColor(this.value);
-                sceneController.deselect();
-                sceneController.select(selection);
-            }))
-
-        };
+    };
 
         // return the constructor function
         return HtmlController;
