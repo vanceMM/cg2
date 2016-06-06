@@ -34,8 +34,7 @@
         <button id="btnBand" type="button"   >Band</button>
         <button id="btnEllipsoid" type="button"   >Ellipsoid</button>
         <button id="btnParametric" type="button"   >Parametric</button>
-        <button id="btnBox" type="button" >Box</button>
-        <button id="btnSpehre" type="button">Sphere</button>
+
         <!-- add more here... -->
         <h3>Selected Object:</h3>
         <table id="random">
@@ -63,6 +62,65 @@
             <tr>
                 <td><button id="btnNewBand"   type="button"   >Create Band</button></td>
             </tr>
+        </table>
+        <table id="ellipsoid">
+            <tr>
+                <td>A Constant:</td>
+                <td><input id="constA" class="objParam" type="number" min="1" max="1000" value="2">
+            </tr>
+            <tr>
+                <td>B Constant:</td>
+                <td><input id="constB" class="objParam" type="number" min="1" max="1000" value="2">
+            </tr>
+            <tr>
+                <td>C Constant:</td>
+                <td><input id="constC" class="objParam" type="number" min="1" max="1000" value="2">
+            </tr>
+            <tr>
+                <td>Segments:</td>
+                <td><input id="numSegmentsEllipsoid" class="objParam" type="number" min="1" max="1000" value="50">
+            </tr>
+            <tr>
+                <td><button id="btnNewEllipsoid"   type="button">Create Ellipsoid</button></td>
+            </tr>
+        </table>
+        <table id="parametric">
+            <tr>
+                <td>x:</td>
+                <td><input id="x" class="objParam" type="String"  value="u-Math.pow(u,3)/3+u*Math.pow(v,2)*100">
+            </tr>
+            <tr>
+                <td>y:</td>
+                <td><input id="y" class="objParam" type="String"  value="v-Math.pow(v,3)/3+Math.pow(u,2)*v*100">
+            </tr>
+            <tr>
+                <td>z:</td>
+                <td><input id="z" class="objParam" type="String" value="Math.pow(u,2)-Math.pow(v,2)*100">
+            </tr>
+            <tr>
+                <td>Segments:</td>
+                <td><input id="numSegmentsPara" class="objParam" type="number" min="1" max="10000" value="100">
+            </tr>
+            <tr>
+                <td>uMin:</td>
+                <td><input id="minU" class="objParam" type="number"  max="10000" value="-2">
+            </tr>
+            <tr>
+                <td>uMax:</td>
+                <td><input id="maxU" class="objParam" type="number"  max="10000" value="2">
+            </tr>
+            <tr>
+                <td>vMin:</td>
+                <td><input id="minV" class="objParam" type="number"  max="10000" value="-2">
+            </tr>
+            <tr>
+                <td>vMax:</td>
+                <td><input id="maxV" class="objParam" type="number"  max="10000" value="2">
+            </tr>
+            <tr>
+                <td><button id="btnNewParametric" type="button">Create Parametric Surface</button></td>
+            </tr>
+
         </table>
 
     </div>
