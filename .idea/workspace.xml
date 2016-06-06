@@ -1,22 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="c43cf3b6-f129-43cc-bdf1-e7fc0b297b2a" name="Default" comment="Ellipsoid gerüst DONE&#10;Modul models/parametric.js Implementierung DONE&#10;&#10;">
+    <list default="true" id="c43cf3b6-f129-43cc-bdf1-e7fc0b297b2a" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/cg-a02.1-surfaces/app.js" afterPath="$PROJECT_DIR$/cg-a02.1-surfaces/app.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/cg-a02.1-surfaces/controller/html_controller.js" afterPath="$PROJECT_DIR$/cg-a02.1-surfaces/controller/html_controller.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/cg-a02.1-surfaces/index.html" afterPath="$PROJECT_DIR$/cg-a02.1-surfaces/index.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/cg-a02.1-surfaces/models/band.js" afterPath="$PROJECT_DIR$/cg-a02.1-surfaces/models/band.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/cg-a02.1-surfaces/models/parametric.js" afterPath="$PROJECT_DIR$/cg-a02.1-surfaces/models/parametric.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/cg-a02.1-surfaces/models/random.js" afterPath="$PROJECT_DIR$/cg-a02.1-surfaces/models/random.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/cg-a02.1-surfaces/scene/buffer_geometry.js" afterPath="$PROJECT_DIR$/cg-a02.1-surfaces/scene/buffer_geometry.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/cg-a02.1-surfaces/scene/scene.js" afterPath="$PROJECT_DIR$/cg-a02.1-surfaces/scene/scene.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/cg-a02.1-surfaces/shaders.js" afterPath="$PROJECT_DIR$/cg-a02.1-surfaces/shaders.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/cg-a02.1-surfaces/shaders/vertex_color.fs" afterPath="$PROJECT_DIR$/cg-a02.1-surfaces/shaders/vertex_color.fs" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/cg-a02.1-surfaces/shaders/vertex_color.vs" afterPath="$PROJECT_DIR$/cg-a02.1-surfaces/shaders/vertex_color.vs" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/cg-a02.1-surfaces/style/style.css" afterPath="$PROJECT_DIR$/cg-a02.1-surfaces/style/style.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/cg-a02.1-surfaces/text.js" afterPath="$PROJECT_DIR$/cg-a02.1-surfaces/text.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/cg-a02.1-surfaces/utils/util.js" afterPath="$PROJECT_DIR$/cg-a02.1-surfaces/utils/util.js" />
     </list>
     <ignored path="cg2.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -340,12 +326,20 @@
       <workItem from="1464632856609" duration="1847000" />
       <workItem from="1464775432088" duration="247000" />
       <workItem from="1465136321891" duration="27967000" />
-      <workItem from="1465237834740" duration="7221000" />
+      <workItem from="1465237834740" duration="7318000" />
     </task>
+    <task id="LOCAL-00001" summary="Ellipsoid gerüst DONE&#10;Modul models/parametric.js Implementierung DONE&#10;&#10;">
+      <created>1465248243888</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1465248243888</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="116249000" />
+    <option name="totallyTimeSpent" value="116346000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
