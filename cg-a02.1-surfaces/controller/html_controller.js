@@ -26,12 +26,15 @@ define(["jquery", "BufferGeometry", "random", "band", "ellipsoid", "parametric"]
             $("#band").hide();
             $("#ellipsoid").hide();
             $("#parametric").hide();
+            $("#objects").hide();
+
 
             $("#btnRandom").click( (function() {
                 $("#band").hide();
                 $("#parametric").hide();
                 $("#ellipsoid").hide();
                 $("#random").show();
+                $("#objects").hide();
             }));
 
             $("#btnBand").click( (function() {
@@ -39,6 +42,7 @@ define(["jquery", "BufferGeometry", "random", "band", "ellipsoid", "parametric"]
                 $("#parametric").hide();
                 $("#ellipsoid").hide();
                 $("#band").show();
+                $("#objects").hide();
 
             }));
 
@@ -47,6 +51,7 @@ define(["jquery", "BufferGeometry", "random", "band", "ellipsoid", "parametric"]
                 $("#band").hide();
                 $("#parametric").hide();
                 $("#ellipsoid").show();
+                $("#objects").hide();
             }));
 
             $("#btnParametric").click( (function() {
@@ -54,6 +59,15 @@ define(["jquery", "BufferGeometry", "random", "band", "ellipsoid", "parametric"]
                 $("#band").hide();
                 $("#parametric").show();
                 $("#ellipsoid").hide();
+                $("#objects").hide();
+            }));
+
+            $("#btnObjects").click( (function() {
+                $("#random").hide();
+                $("#band").hide();
+                $("#parametric").hide();
+                $("#ellipsoid").hide();
+                $("#objects").show();
             }));
 
             $("#btnNewRandom").click( (function() {
@@ -84,6 +98,13 @@ define(["jquery", "BufferGeometry", "random", "band", "ellipsoid", "parametric"]
 
                 scene.addBufferGeometry(bufferGeometryBand);
             }));
+
+
+            $("#btnNewCube").click( (function() {
+                
+
+            }));
+
 
             $("#btnNewEllipsoid").click( (function() {
 
