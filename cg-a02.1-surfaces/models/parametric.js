@@ -29,8 +29,8 @@ define(["three"],
 
             var color = new THREE.Color();
             
-            for(var i=0; i<segments+1; i++) {
-                for(var j=0; j<segments+1; j++) {
+            for(var i=0; i<segments; i++) {
+                for(var j=0; j<segments; j++) {
                     
                     var u = uMin + i * (uMax-uMin)/segments;
                     var v = vMin + j * (vMax-vMin)/segments;

@@ -11,8 +11,8 @@
 
 
 /* requireJS module definition */
-define(["jquery", "BufferGeometry", "random", "band", "parametric"],
-    (function($,BufferGeometry, Random, Band, Parametric) {
+define(["jquery", "BufferGeometry", "random", "band", "ellipsoid", "parametric"],
+    (function($,BufferGeometry, Random, Band, Ellipsoid, Parametric) {
         "use strict";
 
         /*
@@ -88,9 +88,33 @@ define(["jquery", "BufferGeometry", "random", "band", "parametric"],
             $("#btnNewEllipsoid").click( (function() {
 
                 var config = {
-
+                    segments : parseInt($("#numSegmentsEllipsoid").attr("value")),
+                    uMin : 0,
+                    uMax : 2*Math.PI+0.125,
+                    vMin : 0,
+                    vMax : Math.PI
                 };
-                
+
+                var a = ($("#constA").attr("value"));
+                var b = ($("#constB").attr("value"));
+                var c = ($("#constC").attr("value"));
+                var s = ($("#size").attr("value"));
+
+                var posFunc = function(u,v) {
+                    var x = eval(a*Math.cos(u)*Math.cos(v)*s);
+                    var y = eval(b*Math.cos(u)*Math.sin(v)*s);
+                    var z = eval(c*Math.sin(u)*s);
+                    return [x,y,z];
+                };
+
+
+                var parametric = new Parametric(posFunc, config);
+
+                var bufferGeometryParametric = new BufferGeometry();
+                bufferGeometryParametric.addAttribute("position", parametric.getPositions());
+                bufferGeometryParametric.addAttribute("color", parametric.getColors());
+
+                scene.addBufferGeometry(bufferGeometryParametric);
             }));
 
 
@@ -101,7 +125,7 @@ define(["jquery", "BufferGeometry", "random", "band", "parametric"],
                     uMin : parseInt($("#minU").attr("value")),
                     uMax : parseInt($("#maxU").attr("value")),
                     vMin : parseInt($("#minV").attr("value")),
-                    vMax : parseInt($("#maxV").attr("value"))
+                    vMax : parseInt($("#maxV").attr("value")),
                 };
 
                 var posFunc = function(u,v) {
