@@ -24,10 +24,11 @@ define(["three"],
             var segments = config.segments || 100;
             var radius = config.radius || 300;
             var height = config.height || 100;
-
+            
             this.positions = new Float32Array( 2*segments * 3);
             this.colors = new Float32Array( 2*segments * 3 );
             this.indices = new Uint32Array(segments * 6 -6);
+
 
             var color = new THREE.Color();
 

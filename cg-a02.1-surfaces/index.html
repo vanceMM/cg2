@@ -34,10 +34,16 @@
         <button id="btnBand" type="button"   >Band</button>
         <button id="btnEllipsoid" type="button"   >Ellipsoid</button>
         <button id="btnParametric" type="button"   >Parametric</button>
+
         <button id="btnOBJ" type="button" >OBJ</button>
         <button id="btnBox" type="button">Box</button>
         <button id="btnSphere" type="button">Sphere</button>
         <button id="btnCircle" type="button">Circle</button>
+
+        <button id="btnObjects" type="button"   >Objects</button>
+        <button id="btnRobot" type="button"   >Robot</button>
+
+
         <!-- add more here... -->
         <h3>Object Settings</h3>
         <table id="settings">
@@ -143,7 +149,25 @@
             <tr>
                 <td><button id="btnNewParametric" type="button">Create Parametric Surface</button></td>
             </tr>
-
+        </table>
+        <table id="objects">
+            <td>Create Objects:</td>
+            <tr>
+                <td><button id="btnNewCube"   type="button"   >Cube</button></td>
+            </tr>
+        </table>
+        <table id="robot">
+            <td>Robot:</td>
+                <tr>
+                    <td><button id="newRobot" type="button">Create Robot</button></td>
+                </tr>
+            <td>Animate :</td>
+            <tr>
+                <td><input id="CheckBoxAnimateAttack" type="checkbox">Attack</input><br>
+                    <input id="CheckBoxAnimateWalk" type="checkbox">Walk</input><br>
+                    <input id="CheckBoxAnimateEat" type="checkbox">Shutdown</input></td>
+            </tr>
+            <br>
         </table>
         <table id="obj_loader">
             <tr>
@@ -152,9 +176,6 @@
         </table>
 
     </div>
-
-
-
   </div>
 
 </body>

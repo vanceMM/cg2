@@ -26,6 +26,7 @@ requirejs.config({
         "band" : "./models/band",
         "parametric" : "./models/parametric",
         "loader" : "./models/loader",
+        "robot" : "./models/robot",
         "util"  : "./utils/util",
         "shaders" : "./shaders",
         "BufferGeometry" : "./scene/buffer_geometry",

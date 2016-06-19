@@ -11,15 +11,17 @@
 
 
 /* requireJS module definition */
-define(["jquery", "BufferGeometry","BufferGeometryPoints", "random", "band", "parametric" ,"objLoader", "loader"],
-    (function($,BufferGeometry, BufferGeometryPoints, Random, Band, Parametric , OBJLoader, Loader) {
+
+define(["jquery", "BufferGeometry","BufferGeometryPoints", "random", "band", "parametric", "robot", "three" ,"objLoader", "loader"],
+    function ($, BufferGeometry,BufferGeometryPoints, Random, Band, Parametric, Robot, THREE, OBJLoader, Loader) {
+
         "use strict";
 
         /*
          * define callback functions to react to changes in the HTML page
          * and provide them with a closure defining context and scene
          */
-        var HtmlController = function(scene) {
+        var HtmlController = function (scene) {
 
 
             $("#random").show();
@@ -27,37 +29,48 @@ define(["jquery", "BufferGeometry","BufferGeometryPoints", "random", "band", "pa
             $("#ellipsoid").hide();
             $("#parametric").hide();
             $("#obj_loader").hide();
+            $("#objects").hide();
+            $("#robot").hide();
 
 
-            $("#btnRandom").click( (function() {
+
+            $("#btnRandom").click((function () {
                 $("#band").hide();
                 $("#parametric").hide();
                 $("#ellipsoid").hide();
                 $("#random").show();
+
                 $("#obj_loader").hide();
 
+
+                $("#objects").hide();
+                $("#robot").hide();
             }));
 
-            $("#btnBand").click( (function() {
+            $("#btnBand").click((function () {
                 $("#random").hide();
                 $("#parametric").hide();
                 $("#ellipsoid").hide();
                 $("#band").show();
                 $("#obj_loader").hide();
+                $("#objects").hide();
+                $("#robot").hide();
 
 
             }));
 
-            $("#btnEllipsoid").click( (function() {
+            $("#btnEllipsoid").click((function () {
                 $("#random").hide();
                 $("#band").hide();
                 $("#parametric").hide();
                 $("#ellipsoid").show()
                 $("#obj_loader").hide();
+                $("#objects").hide();
+                $("#robot").hide();
 
             }));
 
-            $("#btnParametric").click( (function() {
+            $("#btnParametric").click((function () {
                 $("#random").hide();
                 $("#band").hide();
                 $("#parametric").show();
@@ -72,6 +85,25 @@ define(["jquery", "BufferGeometry","BufferGeometryPoints", "random", "band", "pa
                 $("#ellipsoid").hide();
                 $("#obj_loader").show();
             }));
+
+            $("#btnObjects").click((function () {
+                $("#random").hide();
+                $("#band").hide();
+                $("#parametric").hide();
+                $("#ellipsoid").hide();
+                $("#objects").show();
+                $("#robot").hide();
+            }));
+
+            $("#btnRobot").click((function () {
+                $("#random").hide();
+                $("#band").hide();
+                $("#parametric").hide();
+                $("#ellipsoid").hide();
+                $("#objects").hide();
+                $("#robot").show()
+            }));
+
 
             /**
              * variables for checkboxes
@@ -134,6 +166,29 @@ define(["jquery", "BufferGeometry","BufferGeometryPoints", "random", "band", "pa
              *  Random Point Cloud
              */
             $("#btnNewRandom").click( (function() {
+                $("#objects").hide();
+                $("#robot").hide();
+            }));
+
+            $("#btnObjects").click((function () {
+                $("#random").hide();
+                $("#band").hide();
+                $("#parametric").hide();
+                $("#ellipsoid").hide();
+                $("#objects").show();
+                $("#robot").hide();
+            }));
+
+            $("#btnRobot").click((function () {
+                $("#random").hide();
+                $("#band").hide();
+                $("#parametric").hide();
+                $("#ellipsoid").hide();
+                $("#objects").hide();
+                $("#robot").show()
+            }));
+
+            $("#btnNewRandom").click((function () {
 
                 var numPoints = parseInt($("#numItems").attr("value"));
                 var random = new Random(numPoints);
@@ -147,12 +202,15 @@ define(["jquery", "BufferGeometry","BufferGeometryPoints", "random", "band", "pa
             /**
              * Band Geometry
              */
-            $("#btnNewBand").click( (function() {
+
+
+            $("#btnNewBand").click((function () {
+
 
                 var config = {
-                    segments : parseInt($("#numSegments").attr("value")),
-                    radius : parseInt($("#radius").attr("value")),
-                    height : parseInt($("#height").attr("value"))
+                    segments: parseInt($("#numSegments").attr("value")),
+                    radius: parseInt($("#radius").attr("value")),
+                    height: parseInt($("#height").attr("value"))
                 };
                 
                 var band = new Band(config);
@@ -165,17 +223,22 @@ define(["jquery", "BufferGeometry","BufferGeometryPoints", "random", "band", "pa
             }));
 
 
+
             /**
              * Elipsoid Geometry
              */
-            $("#btnNewEllipsoid").click( (function() {
+
+
+
+            $("#btnNewEllipsoid").click((function () {
+
 
                 var config = {
-                    segments : parseInt($("#numSegmentsEllipsoid").attr("value")),
-                    uMin : 0,
-                    uMax : 2*Math.PI+0.125,
-                    vMin : 0,
-                    vMax : Math.PI
+                    segments: parseInt($("#numSegmentsEllipsoid").attr("value")),
+                    uMin: 0,
+                    uMax: 2 * Math.PI + 0.125,
+                    vMin: 0,
+                    vMax: Math.PI
                 };
 
                 var a = ($("#constA").attr("value"));
@@ -183,11 +246,11 @@ define(["jquery", "BufferGeometry","BufferGeometryPoints", "random", "band", "pa
                 var c = ($("#constC").attr("value"));
                 var s = ($("#size").attr("value"));
 
-                var posFunc = function(u,v) {
-                    var x = eval(a*Math.cos(u)*Math.cos(v)*s);
-                    var y = eval(b*Math.cos(u)*Math.sin(v)*s);
-                    var z = eval(c*Math.sin(u)*s);
-                    return [x,y,z];
+                var posFunc = function (u, v) {
+                    var x = eval(a * Math.cos(u) * Math.cos(v) * s);
+                    var y = eval(b * Math.cos(u) * Math.sin(v) * s);
+                    var z = eval(c * Math.sin(u) * s);
+                    return [x, y, z];
                 };
 
 
@@ -204,21 +267,25 @@ define(["jquery", "BufferGeometry","BufferGeometryPoints", "random", "band", "pa
             /**
              * Parametric Surface GEometry
              */
-            $("#btnNewParametric").click( (function() {
+
+
+
+            $("#btnNewParametric").click((function () {
+
 
                 var config = {
-                    segments : parseInt($("#numSegmentsPara").attr("value")),
-                    uMin : parseInt($("#minU").attr("value")),
-                    uMax : parseInt($("#maxU").attr("value")),
-                    vMin : parseInt($("#minV").attr("value")),
-                    vMax : parseInt($("#maxV").attr("value")),
+                    segments: parseInt($("#numSegmentsPara").attr("value")),
+                    uMin: parseInt($("#minU").attr("value")),
+                    uMax: parseInt($("#maxU").attr("value")),
+                    vMin: parseInt($("#minV").attr("value")),
+                    vMax: parseInt($("#maxV").attr("value")),
                 };
 
-                var posFunc = function(u,v) {
+                var posFunc = function (u, v) {
                     var x = eval($("#x").attr("value"));
                     var y = eval($("#y").attr("value"));
                     var z = eval($("#z").attr("value"));
-                    return [x,y,z];
+                    return [x, y, z];
                 };
 
                 var parametric = new Parametric(posFunc, config);
@@ -226,7 +293,7 @@ define(["jquery", "BufferGeometry","BufferGeometryPoints", "random", "band", "pa
                 var bufferGeometryParametric = new BufferGeometry(points, wireframe, solid);
                 bufferGeometryParametric.addAttribute("position", parametric.getPositions());
                 bufferGeometryParametric.addAttribute("color", parametric.getColors());
-                
+
                 scene.addBufferGeometry(bufferGeometryParametric);
             }));
 
@@ -250,13 +317,51 @@ define(["jquery", "BufferGeometry","BufferGeometryPoints", "random", "band", "pa
             }
 
 
-        };
 
+           
+            $("#CheckBoxAnimateAttack").click( (function() {
+
+                var scope = scene.getScope();
+                var render = function () {
+                    if(document.getElementById("CheckBoxAnimateAttack").checked==true)
+                        requestAnimationFrame( render );
+                    scope.animateFinger();
+                };
+                render();
+            }));
+
+            $("#CheckBoxAnimateWalk").click( (function() {
+
+                var scope = scene.getScope();
+                var render = function () {
+                    if(document.getElementById("CheckBoxAnimateWalk").checked==true)
+                        requestAnimationFrame( render );
+                    scope.animateWalk();
+                };
+                render();
+            }));
+
+            $("#CheckBoxAnimateEat").click( (function() {
+
+                var scope = scene.getScope();
+                var render = function () {
+                    if(document.getElementById("CheckBoxAnimateEat").checked==true)
+                        requestAnimationFrame( render );
+                    scope.animateTeeth();
+                };
+                render();
+            }));
+            
+            
+            // create new robot
+            $("#newRobot").click( (function() {
+                var robot = new Robot();
+                scene.addMesh(robot.getMesh());
+            }));
+        };
         // return the constructor function
         return HtmlController;
-
-
-    })); // require
+    }); // require
 
 
 
