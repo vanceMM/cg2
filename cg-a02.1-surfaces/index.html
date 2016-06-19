@@ -35,6 +35,7 @@
         <button id="btnEllipsoid" type="button"   >Ellipsoid</button>
         <button id="btnParametric" type="button"   >Parametric</button>
         <button id="btnObjects" type="button"   >Objects</button>
+        <button id="btnRobot" type="button"   >Robot</button>
 
         <!-- add more here... -->
         <h3>Selected Object:</h3>
@@ -132,11 +133,21 @@
                 <td><button id="btnNewCube"   type="button"   >Cube</button></td>
             </tr>
         </table>
+        <table id="robot">
+            <td>Robot:</td>
+                <tr>
+                    <td><button id="newRobot" type="button">Create Robot</button></td>
+                </tr>
+            <td>Animate :</td>
+            <tr>
+                <td><input id="CheckBoxAnimateAttack" type="checkbox">Attack</input><br>
+                    <input id="CheckBoxAnimateWalk" type="checkbox">Walk</input><br>
+                    <input id="CheckBoxAnimateEat" type="checkbox">Shutdown</input></td>
+            </tr>
+            <br>
+        </table>
 
     </div>
-
-
-
   </div>
 
 </body>
