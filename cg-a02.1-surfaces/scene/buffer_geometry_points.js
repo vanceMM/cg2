@@ -21,15 +21,14 @@ define(["three"],
 
         "use strict";
 
-        var BufferGeometry = function (points, wireframe, solid) {
+        var BufferGeometry = function () {
 
             this.mesh     = undefined;
             this.geometry = new THREE.BufferGeometry();
-            this.materials = [];
-            this.material = new THREE.PointsMaterial({
+            this.material = new THREE.PointsMaterial( {
                 color: 0xaaaaaa,
                 size: 10, vertexColors: THREE.VertexColors
-            });
+            } );
 
             /**
              * Adds a vertex attribute, we assume each element has three components, e.g.
@@ -43,43 +42,12 @@ define(["three"],
                 this.geometry.addAttribute( name, new THREE.BufferAttribute( buffer, 3 ) );
                 this.geometry.computeBoundingSphere();
 
-            };
-
-            if(points) {
-
-                //this.materials.push(material);
-                this.mesh = new THREE.Points(this.geometry, this.material);
-
-            } else {
-                if (solid) {
-                    var material = new THREE.MeshBasicMaterial({
-                        color: 0xf000,
-                        side: THREE.DoubleSide,
-                        wireframe: false
-                    });
-                    this.materials.push(material);
-
-                }
-                if (wireframe) {
-                    var material = new THREE.MeshBasicMaterial({
-                        color: 0x000000,
-                        side: THREE.DoubleSide,
-                        wireframe: true
-                    });
-                    this.materials.push(material);
-                }
-
-                this.mesh = THREE.SceneUtils.createMultiMaterialObject(this.geometry, this.materials);
+                this.mesh = new THREE.Points( this.geometry, this.material );
             }
-
-            this.setIndex = function (buffer) {
-                this.geometry.setIndex( new THREE.BufferAttribute( buffer, 1 ) );
-            };
 
             this.getMesh = function() {
                 return this.mesh;
             }
-
         };
 
         return BufferGeometry;

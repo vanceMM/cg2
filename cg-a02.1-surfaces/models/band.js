@@ -27,6 +27,7 @@ define(["three"],
 
             this.positions = new Float32Array( 2*segments * 3);
             this.colors = new Float32Array( 2*segments * 3 );
+            this.indices = new Uint32Array(segments * 6 -6);
 
             var color = new THREE.Color();
 
@@ -60,9 +61,39 @@ define(["three"],
                 this.colors[ i + 3 ] = color.r;
                 this.colors[ i + 4 ] = color.g;
                 this.colors[ i + 5 ] = color.b;
+
+                //create indices array
+                /*this.indices[i] = i;
+                this.indices[i+1] = i+1;
+                this.indices[i+2] = i+2;
+                this.indices[i+3] = i+2;
+                this.indices[i+4] = i+1;
+                this.indices[i+5] = i+3;*/
+                console.log(t);
             };
 
+            for(var i=0; i<this.indices.length; i+=6) {
+                if(i < 6) {
+                    this.indices[i] = i;
+                    this.indices[i + 1] = i + 1;
+                    this.indices[i + 2] = i + 2;
+                    this.indices[i + 3] = i + 2;
+                    this.indices[i + 4] = i + 1;
+                    this.indices[i + 5] = i + 3;
+                } else {
+                    this.indices[i] = this.indices[i-6]+2 ;
+                    this.indices[i+ 1] = this.indices[i-5]+2
+                    this.indices[i+ 2] = this.indices[i-4]+2
+                    this.indices[i+ 3] = this.indices[i-3]+2
+                    this.indices[i+ 4] = this.indices[i-2]+2
+                    this.indices[i +5] = this.indices[i-1]+2
+                }
+            }
 
+            console.log(this.positions);
+            console.log(this.indices);
+            console.log(this.positions.length/3);
+            console.log(this.indices.length);
             this.getPositions = function() {
                 return this.positions;
             };
@@ -70,6 +101,10 @@ define(["three"],
             this.getColors = function() {
                 return this.colors;
             };
+            
+            this.getIndices = function () {
+                return this.indices;
+            }
 
         };
 

@@ -19,16 +19,19 @@ requirejs.config({
             //If the load via CDN fails, load locally
             '../lib/jquery-1.7.2.min'],
 
-        "three" : "../lib/three.min",
+        "three" : "../lib/three",
 
         "scene" : "./scene/scene",
         "random" : "./models/random",
         "band" : "./models/band",
         "parametric" : "./models/parametric",
+        "loader" : "./models/loader",
         "util"  : "./utils/util",
         "shaders" : "./shaders",
         "BufferGeometry" : "./scene/buffer_geometry",
-        "HtmlController": "./controller/html_controller"
+        "BufferGeometryPoints" : "./scene/buffer_geometry_points",
+        "HtmlController": "./controller/html_controller",
+        "objLoader" : "./loaders/OBJLoader"
 
     },
     shim: {

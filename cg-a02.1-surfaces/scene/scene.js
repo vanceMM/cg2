@@ -12,8 +12,8 @@
 
 
 /* requireJS module definition */
-define(["three", "util", "shaders", "BufferGeometry", "random", "band", "ellipsoid"],
-    (function(THREE, util, shaders, BufferGeometry, Random, Band, Ellipsoid) {
+define(["three", "util", "shaders", "BufferGeometry", "random", "band"],
+    (function(THREE, util, shaders, BufferGeometry, Random, Band) {
 
         "use strict";
 
@@ -61,11 +61,16 @@ define(["three", "util", "shaders", "BufferGeometry", "random", "band", "ellipso
             };
 
             this.addBufferGeometry = function(bufferGeometry) {
-
                 scope.currentMesh = bufferGeometry.getMesh();
                 scope.scene.add( scope.currentMesh );
 
-            }
+            };
+            
+            this.addBasicBufferGeometry = function (boxGeometry) {
+                scope.currentMesh = boxGeometry;
+                scope.scene.add(boxGeometry);
+            };
+            
 
             /*
              * drawing the scene
@@ -77,6 +82,12 @@ define(["three", "util", "shaders", "BufferGeometry", "random", "band", "ellipso
                 scope.renderer.render(scope.scene, scope.camera);
 
             };
+
+            this.addObjMesh = function (mesh) {
+                console.log(mesh);
+                mesh.position.z = 970;
+                scope.scene.add(mesh);
+            }
         };
 
 
