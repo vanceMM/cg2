@@ -27,6 +27,9 @@ requirejs.config({
         "parametric" : "./models/parametric",
         "loader" : "./models/loader",
         "robot" : "./models/robot",
+        "planet" : "./models/planet",
+        "explosion" : "./models/explosion",
+        
         "util"  : "./utils/util",
         "shaders" : "./shaders",
         "BufferGeometry" : "./scene/buffer_geometry",

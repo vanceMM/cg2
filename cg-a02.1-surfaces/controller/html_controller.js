@@ -31,6 +31,8 @@ define(["jquery", "BufferGeometry","BufferGeometryPoints", "random", "band", "pa
             $("#obj_loader").hide();
             $("#objects").hide();
             $("#robot").hide();
+            $("#planet").hide();
+            $("#explosion").hide();
 
 
 
@@ -39,12 +41,11 @@ define(["jquery", "BufferGeometry","BufferGeometryPoints", "random", "band", "pa
                 $("#parametric").hide();
                 $("#ellipsoid").hide();
                 $("#random").show();
-
                 $("#obj_loader").hide();
-
-
                 $("#objects").hide();
                 $("#robot").hide();
+                $("#planet").hide();
+                $("#explosion").hide();
             }));
 
             $("#btnBand").click((function () {
@@ -55,8 +56,8 @@ define(["jquery", "BufferGeometry","BufferGeometryPoints", "random", "band", "pa
                 $("#obj_loader").hide();
                 $("#objects").hide();
                 $("#robot").hide();
-
-
+                $("#planet").hide();
+                $("#explosion").hide();
             }));
 
             $("#btnEllipsoid").click((function () {
@@ -67,7 +68,8 @@ define(["jquery", "BufferGeometry","BufferGeometryPoints", "random", "band", "pa
                 $("#obj_loader").hide();
                 $("#objects").hide();
                 $("#robot").hide();
-
+                $("#planet").hide();
+                $("#explosion").hide();
             }));
 
             $("#btnParametric").click((function () {
@@ -76,6 +78,8 @@ define(["jquery", "BufferGeometry","BufferGeometryPoints", "random", "band", "pa
                 $("#parametric").show();
                 $("#ellipsoid").hide();
                 $("#obj_loader").hide();
+                $("#planet").hide();
+                $("#explosion").hide();
             }));
 
             $("#btnOBJ").click((function() {
@@ -84,6 +88,8 @@ define(["jquery", "BufferGeometry","BufferGeometryPoints", "random", "band", "pa
                 $("#parametric").hide();
                 $("#ellipsoid").hide();
                 $("#obj_loader").show();
+                $("#planet").hide();
+                $("#explosion").hide();
             }));
 
             $("#btnObjects").click((function () {
@@ -93,6 +99,8 @@ define(["jquery", "BufferGeometry","BufferGeometryPoints", "random", "band", "pa
                 $("#ellipsoid").hide();
                 $("#objects").show();
                 $("#robot").hide();
+                $("#planet").hide();
+                $("#explosion").hide();
             }));
 
             $("#btnRobot").click((function () {
@@ -101,7 +109,31 @@ define(["jquery", "BufferGeometry","BufferGeometryPoints", "random", "band", "pa
                 $("#parametric").hide();
                 $("#ellipsoid").hide();
                 $("#objects").hide();
-                $("#robot").show()
+                $("#robot").show();
+                $("#planet").hide();
+                $("#explosion").hide();
+            }));
+
+            $("#btnPlanet").click((function () {
+                $("#random").hide();
+                $("#band").hide();
+                $("#parametric").hide();
+                $("#ellipsoid").hide();
+                $("#objects").hide();
+                $("#robot").hide();
+                $("#planet").show();
+                $("#explosion").hide();
+            }));
+
+            $("#btnExplosion").click((function () {
+                $("#random").hide();
+                $("#band").hide();
+                $("#parametric").hide();
+                $("#ellipsoid").hide();
+                $("#objects").hide();
+                $("#robot").hide();
+                $("#planet").hide();
+                $("#explosion").show();
             }));
 
 
