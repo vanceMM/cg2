@@ -131,7 +131,9 @@ define(["three", "util", "shaders", "BufferGeometry", "random", "band", "robot"]
                     }
                 }
             };
-
+            // this.addLight = function(Light){
+            //     scope.scene.add(Light);
+            // };
             
             // this.addObjMesh = function (mesh) {
             //     console.log(mesh);
@@ -139,6 +141,9 @@ define(["three", "util", "shaders", "BufferGeometry", "random", "band", "robot"]
             //     scope.scene.add(mesh);
             // };
 
+            this.animateExplosion = function(){
+                scope.currentMesh.children[0].material.uniforms[ 'time' ].value = .00035 * ( Date.now() - start );
+            }
 
             this.addMesh = function (mesh) {
                 scope.currentMesh = mesh;

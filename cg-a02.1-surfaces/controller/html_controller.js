@@ -399,36 +399,24 @@ define(["jquery", "BufferGeometry","BufferGeometryPoints", "random", "band", "pa
                 var planet = new Planet($('#planetDayTexture').is(':checked'), $('#planetNightTexture').is(':checked'), $('#planetCloudsTexture').is(':checked'));
                 scene.addMesh(planet.getMesh());
 
-                var aLight = new THREE.AmbientLight();
+                // var aLight = new THREE.AmbientLight();
                 var dLight = new THREE.DirectionalLight();
                 dLight.name = "dLight";
                 dLight.position.set(-1, 0, -0.3).normalize();
-                scene.addLight(aLight);
+                // scene.addLight(aLight);
                 scene.addLight(dLight);
             });
 
             $('#planetDayTexture').change(function() {
-                if ($(this).is(':checked')) {
-                    planet.getMaterial().uniforms.showDayTexture.value = 1;
-                } else {
-                    planet.getMaterial().uniforms.showDayTexture.value = 0;
-                }
+                planet.getMaterial().uniforms.showDayTexture.value = 1;
             });
 
             $('#planetNightTexture').change(function() {
-                if ($(this).is(':checked')) {
-                    planet.getMaterial().uniforms.showNightTexture.value = 1;
-                } else {
-                    planet.getMaterial().uniforms.showNightTexture.value = 0;
-                }
+                planet.getMaterial().uniforms.showNightTexture.value = 1;
             });
 
             $('#planetCloudsTexture').change(function() {
-                if ($(this).is(':checked')) {
-                    planet.getMaterial().uniforms.showCloudTexture.value = 1;
-                } else {
-                    planet.getMaterial().uniforms.showCloudTexture.value = 0;
-                }
+                planet.getMaterial().uniforms.showCloudTexture.value = 1;
             });
 
 

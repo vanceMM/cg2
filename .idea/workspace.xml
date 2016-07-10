@@ -1,10 +1,21 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="c43cf3b6-f129-43cc-bdf1-e7fc0b297b2a" name="Default" comment="Robot Done; Animation fix">
+    <list default="true" id="c43cf3b6-f129-43cc-bdf1-e7fc0b297b2a" name="Default" comment="">
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/cg-a02.1-surfaces/textures/earth_at_night_2048.jpg" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/cg-a02.1-surfaces/textures/earth_clouds_2048.jpg" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/cg-a02.1-surfaces/textures/earth_month04.jpg" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/cg-a02.1-surfaces/textures/earth_topography_2048.jpg" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/cg-a02.1-surfaces/textures/explosion.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/cg-a02.1-surfaces/models/explosion.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/cg-a02.1-surfaces/models/planet.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/cg-a02.1-surfaces/shaders/explosion_fs.glsl" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/cg-a02.1-surfaces/shaders/explosion_vs.glsl" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/cg-a02.1-surfaces/shaders/planet_fs.glsl" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/cg-a02.1-surfaces/shaders/planet_vs.glsl" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/cg-a02.1-surfaces/shaders/unicolor.fs" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/cg-a02.1-surfaces/shaders/unicolor.vs" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/cg-a02.1-surfaces/.idea/workspace.xml" afterPath="$PROJECT_DIR$/cg-a02.1-surfaces/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/cg-a02.1-surfaces/app.js" afterPath="$PROJECT_DIR$/cg-a02.1-surfaces/app.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/cg-a02.1-surfaces/controller/html_controller.js" afterPath="$PROJECT_DIR$/cg-a02.1-surfaces/controller/html_controller.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/cg-a02.1-surfaces/index.html" afterPath="$PROJECT_DIR$/cg-a02.1-surfaces/index.html" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/cg-a02.1-surfaces/scene/scene.js" afterPath="$PROJECT_DIR$/cg-a02.1-surfaces/scene/scene.js" />
@@ -31,8 +42,8 @@
       <file leaf-file-name="index.html" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/cg-a02.1-surfaces/index.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="487">
-              <caret line="202" column="0" selection-start-line="202" selection-start-column="0" selection-end-line="202" selection-end-column="0" />
+            <state relative-caret-position="608">
+              <caret line="196" column="16" selection-start-line="196" selection-start-column="16" selection-end-line="196" selection-end-column="16" />
               <folding />
             </state>
           </provider>
@@ -41,8 +52,8 @@
       <file leaf-file-name="planet.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/cg-a02.1-surfaces/models/planet.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="267">
-              <caret line="67" column="37" selection-start-line="67" selection-start-column="37" selection-end-line="67" selection-end-column="37" />
+            <state relative-caret-position="199">
+              <caret line="28" column="73" selection-start-line="28" selection-start-column="73" selection-end-line="28" selection-end-column="73" />
               <folding />
             </state>
           </provider>
@@ -51,8 +62,8 @@
       <file leaf-file-name="html_controller.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/cg-a02.1-surfaces/controller/html_controller.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="463">
-              <caret line="457" column="0" selection-start-line="457" selection-start-column="0" selection-end-line="457" selection-end-column="0" />
+            <state relative-caret-position="205">
+              <caret line="402" column="58" selection-start-line="402" selection-start-column="58" selection-end-line="402" selection-end-column="58" />
               <folding />
             </state>
           </provider>
@@ -61,8 +72,8 @@
       <file leaf-file-name="scene.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/cg-a02.1-surfaces/scene/scene.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="23">
-              <caret line="12" column="0" selection-start-line="12" selection-start-column="0" selection-end-line="12" selection-end-column="0" />
+            <state relative-caret-position="1736">
+              <caret line="133" column="47" selection-start-line="133" selection-start-column="47" selection-end-line="133" selection-end-column="47" />
               <folding />
             </state>
           </provider>
@@ -71,8 +82,8 @@
       <file leaf-file-name="planet_fs.glsl" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/cg-a02.1-surfaces/shaders/planet_fs.glsl">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1820">
-              <caret line="130" column="0" selection-start-line="130" selection-start-column="0" selection-end-line="130" selection-end-column="0" />
+            <state relative-caret-position="405">
+              <caret line="120" column="0" selection-start-line="120" selection-start-column="0" selection-end-line="120" selection-end-column="0" />
               <folding />
             </state>
           </provider>
@@ -81,8 +92,8 @@
       <file leaf-file-name="planet_vs.glsl" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/cg-a02.1-surfaces/shaders/planet_vs.glsl">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="84">
-              <caret line="6" column="0" selection-start-line="6" selection-start-column="0" selection-end-line="6" selection-end-column="0" />
+            <state relative-caret-position="56">
+              <caret line="4" column="17" selection-start-line="4" selection-start-column="17" selection-end-line="4" selection-end-column="17" />
               <folding />
             </state>
           </provider>
@@ -123,14 +134,14 @@
         <option value="$PROJECT_DIR$/cg-a02.1-surfaces/shaders/unicolor.fs" />
         <option value="$PROJECT_DIR$/cg-a02.1-surfaces/shaders/unicolor.vs" />
         <option value="$PROJECT_DIR$/cg-a02.1-surfaces/app.js" />
-        <option value="$PROJECT_DIR$/cg-a02.1-surfaces/scene/scene.js" />
         <option value="$PROJECT_DIR$/cg-a02.1-surfaces/shaders/explosion_vs.glsl" />
         <option value="$PROJECT_DIR$/cg-a02.1-surfaces/shaders/explosion_fs.glsl" />
         <option value="$PROJECT_DIR$/cg-a02.1-surfaces/models/explosion.js" />
         <option value="$PROJECT_DIR$/cg-a02.1-surfaces/controller/html_controller.js" />
-        <option value="$PROJECT_DIR$/cg-a02.1-surfaces/index.html" />
         <option value="$PROJECT_DIR$/cg-a02.1-surfaces/models/planet.js" />
+        <option value="$PROJECT_DIR$/cg-a02.1-surfaces/index.html" />
         <option value="$PROJECT_DIR$/cg-a02.1-surfaces/shaders/planet_vs.glsl" />
+        <option value="$PROJECT_DIR$/cg-a02.1-surfaces/scene/scene.js" />
         <option value="$PROJECT_DIR$/cg-a02.1-surfaces/shaders/planet_fs.glsl" />
       </list>
     </option>
@@ -141,10 +152,8 @@
     <detection-done>true</detection-done>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="-8" />
-    <option name="y" value="-8" />
-    <option name="width" value="1382" />
-    <option name="height" value="754" />
+    <option name="width" value="683" />
+    <option name="height" value="738" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="false">
     <OptionsSetting value="true" id="Add" />
@@ -315,7 +324,7 @@
       <workItem from="1467554714859" duration="1666000" />
       <workItem from="1467996598071" duration="800000" />
       <workItem from="1467998939070" duration="291000" />
-      <workItem from="1467999256910" duration="58126000" />
+      <workItem from="1467999256910" duration="68145000" />
     </task>
     <task id="LOCAL-00001" summary="Ellipsoid gerüst DONE&#10;Modul models/parametric.js Implementierung DONE&#10;&#10;">
       <created>1465248243888</created>
@@ -359,11 +368,18 @@
       <option name="project" value="LOCAL" />
       <updated>1465523275819</updated>
     </task>
-    <option name="localTasksCounter" value="7" />
+    <task id="LOCAL-00007" summary="Planet - light/texture bug;  Explosion DONE">
+      <created>1468154255897</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1468154255897</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="270959000" />
+    <option name="totallyTimeSpent" value="280978000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -375,14 +391,14 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="1382" height="754" extended-state="6" />
+    <frame x="0" y="0" width="683" height="738" extended-state="0" />
     <editor active="true" />
     <layout>
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.28731942" sideWeight="0.5" order="1" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.22150883" sideWeight="0.5" order="1" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32996973" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3585209" sideWeight="0.50595236" order="0" side_tool="true" content_ui="tabs" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3250825" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
-      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.2857143" sideWeight="0.4940476" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.37459806" sideWeight="0.4940476" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.2496124" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Mongo Explorer" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
@@ -415,7 +431,8 @@
     <MESSAGE value="minor fixes" />
     <MESSAGE value="with firefox flawless" />
     <MESSAGE value="Robot Done; Animation fix" />
-    <option name="LAST_COMMIT_MESSAGE" value="Robot Done; Animation fix" />
+    <MESSAGE value="Planet - light/texture bug;  Explosion DONE" />
+    <option name="LAST_COMMIT_MESSAGE" value="Planet - light/texture bug;  Explosion DONE" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -450,7 +467,6 @@
     <entry file="file://$PROJECT_DIR$/cg-a01.1-canvas/scene/line.js" />
     <entry file="file://$PROJECT_DIR$/cg-a02.1-surfaces/models/cube.js" />
     <entry file="file://$PROJECT_DIR$/cg-a02.1-surfaces/models/ellipsoid.js" />
-    <entry file="file://$PROJECT_DIR$/cg-a02.1-surfaces/utils/util.js" />
     <entry file="file://$PROJECT_DIR$/lib/three.min.js" />
     <entry file="file://$PROJECT_DIR$/cg-a02.1-surfaces/models/random.js" />
     <entry file="file://$PROJECT_DIR$/cg-a02.1-surfaces/models/band.js" />
@@ -496,14 +512,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/cg-a02.1-surfaces/app.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="364">
-          <caret line="30" column="43" selection-start-line="30" selection-start-column="43" selection-end-line="30" selection-end-column="43" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/cg-a02.1-surfaces/textures/earth_at_night_2048.jpg">
       <provider selected="true" editor-type-id="images">
         <state />
@@ -518,14 +526,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/cg-a02.1-surfaces/shaders.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="448">
-          <caret line="41" column="0" selection-start-line="41" selection-start-column="0" selection-end-line="41" selection-end-column="0" />
           <folding />
         </state>
       </provider>
@@ -554,50 +554,74 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/cg-a02.1-surfaces/app.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-483">
+          <caret line="30" column="43" selection-start-line="30" selection-start-column="43" selection-end-line="30" selection-end-column="43" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/cg-a02.1-surfaces/shaders.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="328">
+          <caret line="41" column="0" selection-start-line="41" selection-start-column="0" selection-end-line="41" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/cg-a02.1-surfaces/utils/util.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-1480">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/cg-a02.1-surfaces/shaders/planet_vs.glsl">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="84">
-          <caret line="6" column="0" selection-start-line="6" selection-start-column="0" selection-end-line="6" selection-end-column="0" />
+        <state relative-caret-position="56">
+          <caret line="4" column="17" selection-start-line="4" selection-start-column="17" selection-end-line="4" selection-end-column="17" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/cg-a02.1-surfaces/models/planet.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="267">
-          <caret line="67" column="37" selection-start-line="67" selection-start-column="37" selection-end-line="67" selection-end-column="37" />
+        <state relative-caret-position="199">
+          <caret line="28" column="73" selection-start-line="28" selection-start-column="73" selection-end-line="28" selection-end-column="73" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/cg-a02.1-surfaces/scene/scene.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="23">
-          <caret line="12" column="0" selection-start-line="12" selection-start-column="0" selection-end-line="12" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/cg-a02.1-surfaces/controller/html_controller.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="463">
-          <caret line="457" column="0" selection-start-line="457" selection-start-column="0" selection-end-line="457" selection-end-column="0" />
+        <state relative-caret-position="1736">
+          <caret line="133" column="47" selection-start-line="133" selection-start-column="47" selection-end-line="133" selection-end-column="47" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/cg-a02.1-surfaces/index.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="487">
-          <caret line="202" column="0" selection-start-line="202" selection-start-column="0" selection-end-line="202" selection-end-column="0" />
+        <state relative-caret-position="608">
+          <caret line="196" column="16" selection-start-line="196" selection-start-column="16" selection-end-line="196" selection-end-column="16" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/cg-a02.1-surfaces/controller/html_controller.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="205">
+          <caret line="402" column="58" selection-start-line="402" selection-start-column="58" selection-end-line="402" selection-end-column="58" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/cg-a02.1-surfaces/shaders/planet_fs.glsl">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1820">
-          <caret line="130" column="0" selection-start-line="130" selection-start-column="0" selection-end-line="130" selection-end-column="0" />
+        <state relative-caret-position="405">
+          <caret line="120" column="0" selection-start-line="120" selection-start-column="0" selection-end-line="120" selection-end-column="0" />
           <folding />
         </state>
       </provider>
