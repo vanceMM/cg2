@@ -12,8 +12,8 @@
 
 /* requireJS module definition */
 
-define(["jquery", "BufferGeometry","BufferGeometryPoints", "random", "band", "parametric", "robot", "three" ,"objLoader", "loader"],
-    function ($, BufferGeometry,BufferGeometryPoints, Random, Band, Parametric, Robot, THREE, OBJLoader, Loader) {
+define(["jquery", "BufferGeometry","BufferGeometryPoints", "random", "band", "parametric", "robot", "three" ,"objLoader", "loader", "planet", "explosion"],
+    function ($, BufferGeometry,BufferGeometryPoints, Random, Band, Parametric, Robot, THREE, OBJLoader, Loader, Planet, Explosion) {
 
         "use strict";
 
@@ -23,7 +23,7 @@ define(["jquery", "BufferGeometry","BufferGeometryPoints", "random", "band", "pa
          */
         var HtmlController = function (scene) {
 
-
+           
             $("#random").show();
             $("#band").hide();
             $("#ellipsoid").hide();
@@ -136,11 +136,11 @@ define(["jquery", "BufferGeometry","BufferGeometryPoints", "random", "band", "pa
                 $("#explosion").show();
             }));
 
+           
 
             /**
              * variables for checkboxes
              */
-
             var solid = false;
             var wireframe = false;
             var points = false;
@@ -390,6 +390,66 @@ define(["jquery", "BufferGeometry","BufferGeometryPoints", "random", "band", "pa
                 var robot = new Robot();
                 scene.addMesh(robot.getMesh());
             }));
+            
+            
+            
+            
+            // create planet
+            $('#btnNewPlanet').click(function() {
+                var planet = new Planet($('#planetDayTexture').is(':checked'), $('#planetNightTexture').is(':checked'), $('#planetCloudsTexture').is(':checked'));
+                scene.addMesh(planet.getMesh());
+
+                var aLight = new THREE.AmbientLight();
+                var dLight = new THREE.DirectionalLight();
+                dLight.name = "dLight";
+                dLight.position.set(-1, 0, -0.3).normalize();
+                scene.addLight(aLight);
+                scene.addLight(dLight);
+            });
+
+            $('#planetDayTexture').change(function() {
+                if ($(this).is(':checked')) {
+                    planet.getMaterial().uniforms.showDayTexture.value = 1;
+                } else {
+                    planet.getMaterial().uniforms.showDayTexture.value = 0;
+                }
+            });
+
+            $('#planetNightTexture').change(function() {
+                if ($(this).is(':checked')) {
+                    planet.getMaterial().uniforms.showNightTexture.value = 1;
+                } else {
+                    planet.getMaterial().uniforms.showNightTexture.value = 0;
+                }
+            });
+
+            $('#planetCloudsTexture').change(function() {
+                if ($(this).is(':checked')) {
+                    planet.getMaterial().uniforms.showCloudTexture.value = 1;
+                } else {
+                    planet.getMaterial().uniforms.showCloudTexture.value = 0;
+                }
+            });
+
+
+            //explosion
+            $('#btnNewExplosion').click(function() {
+                var explosion = new Explosion();
+                scene.addMesh(explosion.getMesh());
+            });
+
+            $('#explosionFrequency').change(function() {
+                explosion.getMaterial().uniforms.freqScale.value = 1;
+            });
+
+            $('#explosionColor').change(function() {
+                explosion.getMaterial().uniforms.colorScale.value = 1;
+            });
+
+            $('#explosionWeight').change(function() {
+                explosion.getMaterial().uniforms.weight.value = 1;
+            });
+           
         };
         // return the constructor function
         return HtmlController;

@@ -18,7 +18,7 @@ define(["three", "util", "shaders", "BufferGeometry", "random", "band", "robot"]
 
 
         "use strict";
-
+        var start = Date.now();
         /*
          * Scene constructor
          */
@@ -118,124 +118,131 @@ define(["three", "util", "shaders", "BufferGeometry", "random", "band", "robot"]
 
             };
 
-            this.addBasicBufferGeometry = function (boxGeometry) {
-                scope.currentMesh = boxGeometry;
-                scope.scene.add(boxGeometry);
+            // this.addBasicBufferGeometry = function (boxGeometry) {
+            //     scope.currentMesh = boxGeometry;
+            //     scope.scene.add(boxGeometry);
+            // };
+
+            this.addLight = function(light) {
+                if (light instanceof THREE.Light) {
+                    scope.scene.add(light);
+                    if (light instanceof  THREE.DirectionalLight) {
+                        scope.currentDirectionalLight = light;
+                    }
+                }
             };
 
-
-            /*
-             * drawing the scene
-             */
-            this.draw = function () {
-
-                requestAnimFrame(scope.draw);
-
-
-                scope.renderer.render(scope.scene, scope.camera);
-
-            };
-
-
-            this.addObjMesh = function (mesh) {
-                console.log(mesh);
-                mesh.position.z = 970;
-                scope.scene.add(mesh);
-            };
+            
+            // this.addObjMesh = function (mesh) {
+            //     console.log(mesh);
+            //     mesh.position.z = 970;
+            //     scope.scene.add(mesh);
+            // };
 
 
             this.addMesh = function (mesh) {
                 scope.currentMesh = mesh;
                 scope.scene.add(scope.currentMesh);
 
-                scope.scene.addMesh(robot.getMesh());
+                // scope.scene.addMesh(robot.getMesh());
             };
 
-            this.getScope = function () {
-                return this;
-            };
-
-
-            var rotateFinger = 1;
-            var rotateFeet = 1;
-            var rotateTeeth = 1;
-
-            var fingerAt = 1;
-
-            this.animateFinger = function () {
-                var nodeHead = scope.scene.getObjectByName("fingerJointRight", true);
-                var nodeHead2 = scope.scene.getObjectByName("fingerJointLeft", true);
-
-                if (rotateFinger == 1) {
-                    if (fingerAt == 1) {
-                        nodeHead.rotation.x -= 0.05;
-                        nodeHead2.rotation.x -= 0.05;
-                        if (nodeHead.rotation.x <= -1.5 && nodeHead2.rotation.x <= -1.5) {
-                            fingerAt = 2;
-                        }
-                    } else if (fingerAt == 2) {
-                        nodeHead.rotation.x += 0.5;
-                        nodeHead2.rotation.x += 0.5;
-                        if (nodeHead.rotation.x >= 0 && nodeHead2.rotation.x >= 0) {
-                            fingerAt = 1;
-                        }
-                    }
+            
+            this.draw = function () {
+                var explosion = scope.scene.getObjectByName('explosion');
+                if(explosion){
+                    explosion.material.uniforms['time'].value = .00035 * (Date.now() - start);
                 }
+                requestAnimFrame(scope.draw);
+                scope.renderer.render(scope.scene, scope.camera);
             };
 
-            var feetAt = 1;
 
-            this.animateWalk = function () {
-                var nodeHead4 = scope.scene.getObjectByName("jointLeft", true);
-                var nodeHead5 = scope.scene.getObjectByName("jointRight", true);
-
-
-                // if (rotateFeet == 1) {
-                //     if (feetAt == 1) {
-                //         nodeHead4.rotation.x -= 0.05;
-                //         nodeHead5.rotation.x += 0.05;
-                //         if (nodeHead4.rotation.x <= 3 && nodeHead5.rotation.x <= -3) {
-                //             feetAt = 2;
-                //         }
-                //     } else if (feetAt == 2) {
-                //         nodeHead4.rotation.x += 0.5;
-                //         nodeHead5.rotation.x -= 0.05;
-                //         if (nodeHead4.rotation.x >= -3 && nodeHead5.rotation.x >= 3) {
-                //             feetAt = 1;
-                //         }
-                //     }
-                // }
-            };
-
-            var teethAt = 1;
-
-            this.animateTeeth = function () {
-                var nodeHead3 = scope.scene.getObjectByName("tooth1", true);
-                if (rotateTeeth == 1) {
-                    if (teethAt == 1) {
-                        nodeHead3.rotation.x -= 0.05;
-                        if (nodeHead3.rotation.x <= 0) {
-                            teethAt = 2;
-                        }
-                    } else if (teethAt == 2) {
-                        nodeHead3.rotation.x += 0.05;
-                        if (nodeHead3.rotation.x >= 1) {
-                            teethAt = 3;
-                        } else if (teethAt == 3) {
-                            nodeHead3.rotation.x -= 0.02;
-                            if (nodeHead3.rotation.x >= 0.05) {
-                                teethAt = 2;
-                                // } else if (teethAt == 3) {
-                                //     nodeHead3.rotation.x -= 0.025;
-                                //     if (nodeHead3.rotation.x >= 0.05) {
-                                //         teethAt = 2;
-                                //     }
-                            }
-                        }
-                    }
-                }
-
-            }
+            // this.getScope = function () {
+            //     return this;
+            // };
+            //
+            //
+            // var rotateFinger = 1;
+            // var rotateFeet = 1;
+            // var rotateTeeth = 1;
+            //
+            // var fingerAt = 1;
+            //
+            // this.animateFinger = function () {
+            //     var nodeHead = scope.scene.getObjectByName("fingerJointRight", true);
+            //     var nodeHead2 = scope.scene.getObjectByName("fingerJointLeft", true);
+            //
+            //     if (rotateFinger == 1) {
+            //         if (fingerAt == 1) {
+            //             nodeHead.rotation.x -= 0.05;
+            //             nodeHead2.rotation.x -= 0.05;
+            //             if (nodeHead.rotation.x <= -1.5 && nodeHead2.rotation.x <= -1.5) {
+            //                 fingerAt = 2;
+            //             }
+            //         } else if (fingerAt == 2) {
+            //             nodeHead.rotation.x += 0.5;
+            //             nodeHead2.rotation.x += 0.5;
+            //             if (nodeHead.rotation.x >= 0 && nodeHead2.rotation.x >= 0) {
+            //                 fingerAt = 1;
+            //             }
+            //         }
+            //     }
+            // };
+            //
+            // var feetAt = 1;
+            //
+            // this.animateWalk = function () {
+            //     var nodeHead4 = scope.scene.getObjectByName("jointLeft", true);
+            //     var nodeHead5 = scope.scene.getObjectByName("jointRight", true);
+            //
+            //
+            //     // if (rotateFeet == 1) {
+            //     //     if (feetAt == 1) {
+            //     //         nodeHead4.rotation.x -= 0.05;
+            //     //         nodeHead5.rotation.x += 0.05;
+            //     //         if (nodeHead4.rotation.x <= 3 && nodeHead5.rotation.x <= -3) {
+            //     //             feetAt = 2;
+            //     //         }
+            //     //     } else if (feetAt == 2) {
+            //     //         nodeHead4.rotation.x += 0.5;
+            //     //         nodeHead5.rotation.x -= 0.05;
+            //     //         if (nodeHead4.rotation.x >= -3 && nodeHead5.rotation.x >= 3) {
+            //     //             feetAt = 1;
+            //     //         }
+            //     //     }
+            //     // }
+            // };
+            //
+            // var teethAt = 1;
+            //
+            // this.animateTeeth = function () {
+            //     var nodeHead3 = scope.scene.getObjectByName("tooth1", true);
+            //     if (rotateTeeth == 1) {
+            //         if (teethAt == 1) {
+            //             nodeHead3.rotation.x -= 0.05;
+            //             if (nodeHead3.rotation.x <= 0) {
+            //                 teethAt = 2;
+            //             }
+            //         } else if (teethAt == 2) {
+            //             nodeHead3.rotation.x += 0.05;
+            //             if (nodeHead3.rotation.x >= 1) {
+            //                 teethAt = 3;
+            //             } else if (teethAt == 3) {
+            //                 nodeHead3.rotation.x -= 0.02;
+            //                 if (nodeHead3.rotation.x >= 0.05) {
+            //                     teethAt = 2;
+            //                     // } else if (teethAt == 3) {
+            //                     //     nodeHead3.rotation.x -= 0.025;
+            //                     //     if (nodeHead3.rotation.x >= 0.05) {
+            //                     //         teethAt = 2;
+            //                     //     }
+            //                 }
+            //             }
+            //         }
+            //     }
+            //
+            // }
         };
         
 
